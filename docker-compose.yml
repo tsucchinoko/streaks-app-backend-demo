@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+  db:
+    # image: postgres:15.3 # Intel Macの場合はこちらを使う
+    image: arm64v8/postgres:15.3 # M1 Macの場合はこちらを使う
+    container_name: streaks-backend-db
+    restart: always
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+    env_file:
+      - ./.env
+    volumes:
+      - ./db:/var/lib/postgresql/data

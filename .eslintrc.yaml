@@ -12,7 +12,14 @@ parserOptions:
   ecmaVersion: 'latest'
   sourceType: 'module'
 root: true
-ignorePatterns: ['.eslintrc.yaml', "**/*.spec.ts", "**/*.test.ts", "**/*.e2e-spec.ts", "**/*.e2e-test.ts"]
+ignorePatterns:
+  [
+    '.eslintrc.yaml',
+    '**/*.spec.ts',
+    '**/*.test.ts',
+    '**/*.e2e-spec.ts',
+    '**/*.e2e-test.ts',
+  ]
 plugins:
   - '@typescript-eslint'
   - 'import'
