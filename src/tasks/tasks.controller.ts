@@ -23,8 +23,8 @@ export class TasksController {
   }
 
   @Get()
-  findAll() {
-    return this.tasksService.findAll();
+  async findAll() {
+    return await this.tasksService.findAll();
   }
 
   @Get(':id')
@@ -33,12 +33,12 @@ export class TasksController {
   }
 
   @Patch(':id')
-  update(@Param('id') id: string, @Body() updateTaskDto: UpdateTaskDto) {
-    return this.tasksService.update(+id, updateTaskDto);
+  async update(@Param('id') id: string, @Body() updateTaskDto: UpdateTaskDto) {
+    return await this.tasksService.update(id, updateTaskDto);
   }
 
   @Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.tasksService.remove(+id);
+  async remove(@Param('id') id: string) {
+    return await this.tasksService.remove(id);
   }
 }
