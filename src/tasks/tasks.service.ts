@@ -36,12 +36,20 @@ export class TasksService {
         },
         orderBy: {
           createdAt: 'asc'
+        },
+        include: {
+          _count: {
+            select: {
+              taskManagements: true
+            }
+          }
         }
       });
       const result: TaskResponse[] = tasks.map((task) => {
         return {
           id: task.id,
-          title: task.title
+          title: task.title,
+          completedCount: task._count.taskManagements
         };
       });
       return result;
